@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid #a01f1f; */
+}
+.header__mainpage {
+    width: 80%;
+    margin: auto;
+}
+.header__navbar {
+    display: flex;
+    height: 100px;
+    padding: 10px 0;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+.navbar__element--logo {
+    width: 40%;
+}
+.navbar__element--logo img {
+    width: 50px;
+}
+.wrap__elements {
+    display: flex;
+    width: 60%;
+    gap: 30px;
+}
+.navbar__element--redirect {
+    padding: 0 10px;
+    cursor: pointer;
+}
+.link__element--wrap {
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 0;
+}
+/*! active link */
+.link__active {
+    border: solid;
+    border-color: #000000;
+    border-width: 1px 0 1px 0;
+}

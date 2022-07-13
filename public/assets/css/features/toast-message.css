@@ -1,0 +1,73 @@
+.box__message{
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    margin: auto;
+    height: 100px;
+}
+.wrap__btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.btn__toast {
+    background-color: var(--color);
+    border: 1px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 9rem;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+}
+.toast__case {
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: scroll;
+}
+.toast__case::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+.toast__message {
+    width: 300px;
+    height: 100px;
+    padding: 0 20px;
+    border-radius: 5px;
+    position: absolute;
+    animation: toast_ani 4000ms;
+    display: flex;
+    align-items: center;
+    float: right;
+    gap: 10px;
+    user-select: none;
+    right: -300px;
+    background-color: lightgreen;
+}
+@keyframes toast_ani {
+    0% {
+        right: -300px;
+    }
+    5%,
+    70% {
+        right: 0;
+    }
+    100%{
+        right: -330px;
+    }
+}
+.toast__icon {
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    border: 3px solid;
+    border-radius: 50%;
+}
+.toast__icon ion-icon[name="checkmark-outline"] {
+    font-size: 2em;
+}

@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+.the__project--all {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    gap: 30px;
+}
+.project__title--wrap {
+    font-size: 3em;
+    font-weight: bold;
+}
+.project__title--wrap p:last-child {
+    color: #bdbdbd;
+}
+.project__body {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+.project__content {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    height: 430px;
+    grid-gap: 30px;
+}
+.project__description {
+    text-align: justify;
+}
+.project__image--background {
+    height: 440px;
+    object-fit: cover;
+}
+.project__image--small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.project__image--more {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.project__image--more img {
+    width: 100%;
+}
+.field__editAndBack{
+    display: flex;
+    position: relative;
+    width: 80%;
+    margin: 20px auto;
+    justify-content: right;
+    gap: 20px;
+}
+.field__editAndBack button{
+    border: unset;
+    padding: 10px 20px;
+}
+#project__button--edit{
+    background-color: #6B7280;
+    color: white;
+}
+#project__button--back{
+    background-color: white;
+    color: #6B7280;
+    border: 1px solid;
+}
+#form__add--product button[type="submit"]{
+    border: unset;
+    padding: 10px 20px;
+}

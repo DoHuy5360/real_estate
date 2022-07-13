@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+#dialog__register {
+    width: 470px;
+    background-color: #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+}
+#dialog__register form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 10px;
+    width: 390px;
+}
+.form__field--title {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#dialog__register form input:not(#rgfield__input--accept) {
+    height: 50px;
+    background-color: #f3f3f3;
+    outline: none;
+    border: unset;
+    padding: 10px 20px;
+}
+.rgfield__input--note {
+    height: 150px;
+    background-color: #f3f3f3;
+    border: unset;
+    outline: unset;
+    resize: unset;
+    padding: 10px 20px;
+}
+.wrap__field--accept {
+    display: flex;
+    gap: 5px;
+}
+#dialog__register form button {
+    background-color: #333333;
+    color: #ffffff;
+    height: 40px;
+}
+dialog {
+    border: unset;
+    position: relative;
+    user-select: none;
+    z-index: 1;
+}
+dialog::backdrop {
+    background-color: #0000005a;
+}
+ion-icon[name="close-outline"] {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    transition: 300ms linear;
+}
+ion-icon[name="close-outline"]:hover {
+    background-color: black;
+    color: white;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+    z-index: 2;
+}
