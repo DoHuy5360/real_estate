@@ -1,4 +1,5 @@
 @extends('layouts.header-footer')
+@section('title', 'Projects')
 @section('contents')
     <div class="wrap__ourprojects">
         <div class="ourprojects__title"><span>Our</span><br /><span>Projects</span></div>
@@ -6,14 +7,13 @@
             @foreach ($all_projects as $project)
                 <div class="project__card">
                     <div class="projectcard__img--wrap">
-                        <img src="{{ $project->source }}"
-                            alt="{{ $project->name }}" />
+                        <img src="{{ $project->source }}" alt="{{ $project->name }}" />
                     </div>
                     <div class="projectcard__text--wrap">
                         <div class="projectcard__title">{{ $project->name }}</div>
                         <div class="projectcard__description">{{ $project->description }}</div>
-                        <a href="{{ '/projects/'.$project->id }}">
-                            <button class="projectcard__btn--viewmore">VIEW MORE →</button>
+                        <a href="{{ url("projects/{$project->id}") }}">
+                            <button type="button" class="projectcard__btn--viewmore">VIEW MORE →</button>
                         </a>
                     </div>
                 </div>

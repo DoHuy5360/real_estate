@@ -18,13 +18,17 @@ class CartController extends Controller
         //     'length'=>$length,
         // ]);
         $products = Cart::all();
-        return view('cart', [
+        return view('cart.cart', [
             'products'=>$products,
         ]);
     }
     public function deleteProduct($product_id)
     {
-        DB::delete("delete from carts where id = {$product_id}");
-        return redirect()->back()->with('message', 'Remove successfully!');
+        try {
+            DB::delete("delete from carts where id = {$product_id}");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('delete-fail', 'Remove fail!');
+        }
+        return redirect()->back()->with('delete-success', 'Remove successfully!');
     }
 }

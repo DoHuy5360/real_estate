@@ -14,6 +14,7 @@
 .footer__part--top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    align-items: center;
 }
 .footer__column {
     display: flex;

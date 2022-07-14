@@ -17,15 +17,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('/');
+Route::middleware(['auth'])->prefix('projects')->group(
+    function () {
+        Route::group(
+            ['prefix' => 'edit'],
+            function () {
+                Route::get('/{project_id}', [ProjectsController::class, 'editProject'])->name('projects.edit');
+                Route::post('/{project_id}', [ProjectsController::class, 'updateProjectController'])->name('projects.edit');
+            }
+        );
+        Route::get('/{project_id}', [ProjectsController::class, 'showProject'])->name('projects.view');
+        Route::post('/{project_id}', [ProjectsController::class, 'addToCart'])->name('projects.view');
+        Route::get('/', [ProjectsController::class, 'index'])->name('projects.projects');
+    }
+);
+Route::middleware(['auth'])->prefix('cart')->group(function () {
+    Route::get('/{product_id}', [CartController::class, 'deleteProduct'])->name('cart.cart');
+    Route::get('/', [CartController::class, 'index'])->name('cart.cart');
+});
 
-Route::get('/projects/edit/{project_id}', [ProjectsController::class, 'editProject'])->middleware(['auth'])->name('projects');
-Route::post('/projects/edit/{project_id}', [ProjectsController::class, 'updateProjectController'])->middleware(['auth'])->name('projects');
-Route::get('/projects/{project_id}', [ProjectsController::class, 'showProject'])->middleware(['auth'])->name('projects');
-Route::post('/projects/{project_id}', [ProjectsController::class, 'addToCart'])->middleware(['auth'])->name('projects');
-Route::get('/projects', [ProjectsController::class, 'index'])->middleware(['auth'])->name('projects');
-
-Route::get('/cart/{product_id}', [CartController::class, 'deleteProduct'])->middleware(['auth'])->name('cart') ;
-Route::get('/cart', [CartController::class, 'index'])->middleware(['auth'])->name('cart') ;
 
 Route::get('/dashboard', function () {
     return view('dashboard');

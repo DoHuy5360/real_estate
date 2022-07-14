@@ -1,4 +1,5 @@
 @extends('layouts.header-footer')
+@section('title','Home')
 @section('contents')
     <div class="header__demo--project">
         <div class="demo__text--left">
@@ -30,7 +31,7 @@
                 alt="">
         </div>
         <div class="containt2">
-            <h1>About us</h1>
+            <h2>About us</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aut ab iste. Vel consequatur cum sint natus, non
                 quia vitae ratione hic maxime ut obcaecati quaerat accusantium cupiditate blanditiis eligendi?</p>
             <button id="read-more">READ MORE</button>
@@ -38,7 +39,6 @@
     </div>
     <div class="mission">
         <h2>Our project</h2>
-        {{-- <div class="left"></div> --}}
         <div class="product">
             <div class="img">
                 <img src="https://images.unsplash.com/photo-1470075801209-17f9ec0cada6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YnVpbGRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
@@ -60,17 +60,10 @@
                 <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80"
                     alt="">
             </div>
-            <div class="img">
-                <img src="https://images.unsplash.com/photo-1528469138590-fa12d3193392?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80"
-                    alt="">
-            </div>
-            <div class="img">
-                <img src="https://images.unsplash.com/photo-1522069365959-25716fb5001a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
-                    alt="">
-            </div>
         </div>
-        <div class="right"></div>
-        <button id="read-more">READ MORE</button>
+        <a href="{{ url("projects") }}">
+            <button type="button" id="read-more">READ MORE</button>
+        </a>
     </div>
     {{-- ! start contact us --}}
     <div class="map-contact">

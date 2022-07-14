@@ -1,16 +1,41 @@
 @extends('layouts.header-footer')
+@section('title', $project->name)
 @section('contents')
     <div class="field__editAndBack">
-        <a href="{{ route('projects') }}">
-            <button id="project__button--back">Back</button>
+        <a href="{{ url('/projects') }}">
+            <button id="project__button--back">All projects</button>
         </a>
         <a href="{{ url("projects/edit/{$project->id}") }}">
             <button id="project__button--edit">Edit</button>
         </a>
     </div>
-    @if (Session::has('message'))
-        <h2>{{ Session::get('message') }}</h2>
-    @endif
+    <div class="box__message">
+        @if (Session::has('add-success'))
+            <x-alert-message>
+                <x-slot name="status">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                </x-slot>
+                <x-slot name="message">
+                    {{ __(Session::get('add-success')) }}
+                </x-slot>
+                <x-slot name="color">
+                    {{ __('lightgreen') }}
+                </x-slot>
+            </x-alert-message>
+        @elseif (Session::has('add-fail'))
+            <x-alert-message>
+                <x-slot name="status">
+                    <ion-icon name="alert-outline"></ion-icon>
+                </x-slot>
+                <x-slot name="message">
+                    {{ __(Session::get('add-fail')) }}
+                </x-slot>
+                <x-slot name="color">
+                    {{ __('lightsalmon') }}
+                </x-slot>
+            </x-alert-message>
+        @endif
+    </div>
     <div class="the__project--all">
         <div class="project__title--wrap">
             <p>{{ $project->name }}</p>
@@ -18,6 +43,7 @@
             <form action="{{ url("projects/{$project->id}") }}" id="form__add--product" method="POST">
                 @csrf
                 <input name="id" type="hidden" value="{{ $project->id }}">
+                <input name="source" type="hidden" value="{{ $project->source }}">
                 <button type="submit">Add to cart</button>
             </form>
         </div>

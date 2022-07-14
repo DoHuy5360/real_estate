@@ -10,32 +10,9 @@
     flex-direction: column;
     gap: 5px;
 }
-.btn__toast {
-    background-color: var(--color);
-    border: 1px solid black;
-    padding: 10px 20px;
-    cursor: pointer;
-    width: 9rem;
-    border-radius: 3px;
-    cursor: pointer;
-    user-select: none;
-}
-.toast__case {
-    position: absolute;
-    right: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow: scroll;
-}
-.toast__case::-webkit-scrollbar {
-    height: 0;
-    width: 0;
-}
 .toast__message {
     width: 300px;
-    height: 100px;
+    height: 70px;
     padding: 0 20px;
     border-radius: 5px;
     position: absolute;
@@ -43,10 +20,10 @@
     display: flex;
     align-items: center;
     float: right;
-    gap: 10px;
+    gap: 20px;
     user-select: none;
     right: -300px;
-    background-color: lightgreen;
+    background-color: var(--color);
 }
 @keyframes toast_ani {
     0% {
@@ -61,13 +38,15 @@
     }
 }
 .toast__icon {
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     display: grid;
     place-items: center;
-    border: 3px solid;
+    outline: 5px solid white;
     border-radius: 50%;
 }
-.toast__icon ion-icon[name="checkmark-outline"] {
+.toast__icon ion-icon {
     font-size: 2em;
+    font-weight: bold;
+    color: white;
 }
