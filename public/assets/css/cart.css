@@ -32,7 +32,7 @@
 }
 .product__card img {
     border-left: 10px solid #6B7280;
-    height: 100%;
+    height: inherit;
     width: 100%;
     object-fit: cover;
 }

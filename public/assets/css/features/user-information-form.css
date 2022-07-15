@@ -1,4 +1,4 @@
-#dialog__user--information{
+#dialog__user--information {
     transform: translate(-50%, 50%);
     border: unset;
     border-radius: 5px;
@@ -6,25 +6,27 @@
     position: absolute;
     border-radius: 10px;
 }
-.card__user--information{
+.card__user--information {
     width: 400px;
     height: 400px;
-    background-color: #6B7280;
+    background-color: #6b7280;
     display: flex;
     flex-direction: column;
     position: relative;
     border-radius: inherit;
 }
-.card__user--avatar{
+.card__user--avatar {
     width: 200px;
+    height: 200px;
     border-radius: 50%;
     align-self: center;
     transform: translateY(-50%);
-    outline: 10px solid #6B7280;
+    outline: 10px solid #6b7280;
     border: 5px solid white;
     position: absolute;
 }
-.card__content--wrap{
+
+.card__content--wrap {
     margin: 120px 0 20px 0;
     align-self: center;
     text-align: center;
@@ -33,35 +35,86 @@
     gap: 5px;
     color: white;
 }
-.card__content--wrap .card__info--name{
+.card__content--wrap .card__info--name {
     font-size: 2em;
     text-transform: uppercase;
 }
-.card__infor--myProject{
+.card__infor--myProject {
     border-top: 1px solid #ffffff;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
     overflow: scroll;
+    width: 100%;
 }
-.card__infor--myProject :not(h3){
+#card__user--description{
+    white-space: pre-line;
+    background-color: transparent;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    resize: none;
+    padding: 5px;
     color: white;
-    margin: 10px 20px;
 }
+#card__user--description::placeholder{
+    color: white;
+}
+#choose__avatar{
+    display: none;
+}
+ion-icon[name="settings-outline"],
 ion-icon[name="close-outline"] {
     position: absolute;
-    right: 10px;
-    top: 10px;
     font-size: 1.5em;
     font-weight: bold;
     cursor: pointer;
     padding: 5px;
-    transition: 300ms linear;
-}
-ion-icon[name="close-outline"]:hover {
-    background-color: black;
     color: white;
+}
+ion-icon[name="close-outline"] {
     right: 10px;
     top: 10px;
-    border-radius: 50%;
-    transform: rotate(180deg);
-    z-index: 2;
+}
+ion-icon[name="settings-outline"] {
+    left: 10px;
+    top: 10px;
+}
+#setting__userInformation--save{
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    color: white;
+    border: unset;
+    background-color: transparent;
+    top: 40px;
+    left: 10px;
+    outline: none;
+    visibility: hidden;
+}
+#dialog__choose--avatar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: unset;
+    padding: 10px;
+    border-radius: 5px;
+}
+#dialog__choose--avatar label{
+    font-weight: bold;
+}
+#avatar__choose--url{
+    height: 50px;
+    outline: none;
+    width: 400px;
+    padding-left: 5px;
+}
+#choose__avatar--submit{
+    height: 50px;
+    width: 100px;
+    background-color: #6b7280;
+    color: white;
+    border: unset;
+    border-radius: 0 5px 5px 0;
 }

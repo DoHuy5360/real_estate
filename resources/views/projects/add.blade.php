@@ -1,5 +1,5 @@
 @extends('layouts.header-footer')
-@section('title', 'Edit project')
+@section('title', 'Add project')
 @section('contents')
 <div class="box__message">
     @if (Session::has('edit-success'))
@@ -29,28 +29,23 @@
         @endif
 </div>
     <div class="field__editAndBack">
-        <a href="{{ url("projects/{$project->id}") }}">
+        <a href="{{ url("projects") }}">
             <button id="project__button--back">Back</button>
         </a>
-        <button type="submit" form="form__update" id="project__button--edit">Update</button>
+        <button type="submit" form="form__update" id="project__button--edit">Add</button>
     </div>
-    <form action="{{ url("projects/edit/{$project->id}") }}" method="POST" id="form__update">
+    <form action="{{ url("projects/add/project") }}" method="POST" id="form__update">
         @csrf
 
         <div class="the__project--all">
             <div class="project__title--wrap">
-                <p><input name="name" type="text" value="{{ $project->project_name }}"></p>
-                <p><input name="price" type="text" value="{{ $project->price }}"></p>
+                <p>Name: <input name="project_name" type="text" value=""></p>
+                <p>Price: <input name="price" type="text" value=""></p>
             </div>
             <div class="project__body">
-                <input name="source" value="{{ $project->source }}" alt="" class="project__image--background">
+                <input name="source" value="" alt="" class="project__image--background" placeholder="project image's url">
                 <div class="project__content">
-                    <input name="source" value="{{ $project->source }}" alt="" class="project__image--small">
-                    <textarea style="resize: none;" name="description" class="project__description">{{ $project->project_description }}</textarea>
-                </div>
-                <div class="project__image--more">
-                    <input name="source" value="{{ $project->source }}" alt="">
-                    <input name="source" value="{{ $project->source }}" alt="">
+                    <textarea style="resize: none;" name="project_description" class="project__description" placeholder="Description ..."></textarea>
                 </div>
             </div>
         </div>

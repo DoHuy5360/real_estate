@@ -1,85 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Custom file input</title>
         <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: consolas;
+            }
             html,
             body {
                 height: 100%;
                 display: grid;
                 place-items: center;
             }
-            .card__user--information {
-                width: 400px;
-                height: 500px;
-                background-color: #6b7280;
+            input::-webkit-file-upload-button {
+                padding: 10px;
+                border-radius: inherit;
+                transition: 300ms;
+                cursor: pointer;
+                font-weight: bold;
+                pointer-events: auto !important;
+                border: 1px solid white;
+                float: right;
+                margin-left: 5px;
+            }
+            input::-webkit-file-upload-button:hover {
+                color: white;
+                background-color: black;
+                border: 1px solid white;
+            }
+            input::-webkit-file-upload-button:active {
+                color: black;
+                background-color: white;
+            }
+            input[type="file" i] {
+                width: 350px;
                 border-radius: 5px;
-                display: flex;
-                flex-direction: column;
-                position: relative;
-            }
-            .card__user--avatar {
-                width: 200px;
-                border-radius: 50%;
-                align-self: center;
-                transform: translateY(-50%);
-                outline: 10px solid #6b7280;
-                border: 5px solid white;
-                position: absolute;
-            }
-            .card__content--wrap {
-                margin: 120px 0 20px 0;
-                align-self: center;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
+                padding: 20px;
+                background-color: black;
                 color: white;
-            }
-            .card__content--wrap .card__info--name {
-                font-size: 2em;
-            }
-            .card__infor--myProject {
-                border-top: 1px solid white;
-                padding: 0 20px;
-            }
-            .card__infor--myProject :not(h3) {
-                color: white;
-                margin: 10px 20px;
-            }
-            span {
-                position: absolute;
-                top: 20px;
-                right: 20px;
+                font-weight: bold;
+                pointer-events: none;
+                user-select: none;
+                line-height: 2.5em;
             }
         </style>
     </head>
     <body>
-        <dialog id="dialog__user--information">
-            <form action="" class="card__user--information">
-                <ion-icon name="close-outline"></ion-icon>
-                <img
-                    src="./public/assets/img/cart/1657619989.png"
-                    alt=""
-                    class="card__user--avatar"
-                />
-                <div class="card__content--wrap">
-                    <div class="card__info--name">Huy</div>
-                    <div class="card__info--email">cocdh123@gmail.com</div>
-                    <div class="card__infor--phone">0965758993</div>
-                    <div class="card__info--updated">258992598</div>
-                </div>
-                <div class="card__infor--myProject">
-                    <h3>On market:</h3>
-                    <p>fkbsobd</p>
-                    <p>fkbsobd</p>
-                    <p>fkbsobd</p>
-                    <p>fkbsobd</p>
-                </div>
-            </form>
-        </dialog>
+        <input type="file"/>
     </body>
 </html>
+<script src="script.js"></script>

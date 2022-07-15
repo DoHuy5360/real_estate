@@ -19,10 +19,10 @@ class Project extends Model
     {
         try {
             Project::where('id', '=', $project_id_from_controller)->update([
-                'name' => $request_from_controller->name,
+                'project_name' => $request_from_controller->name,
                 'price' => $request_from_controller->price,
                 'source' => $request_from_controller->source,
-                'description' => $request_from_controller->description,
+                'project_description' => $request_from_controller->description,
             ]);
         } catch (\Throwable $error) {
             return "Update fail → Error: {$error}";

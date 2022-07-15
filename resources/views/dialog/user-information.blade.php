@@ -1,11 +1,10 @@
 <dialog id="dialog__user--information">
-    <form action="" class="card__user--information">
+    <form action="{{ url('user/edit') }}" class="card__user--information" method="POST">
+        @csrf
+        <ion-icon name="settings-outline" id="btn__userInformation--setting"></ion-icon>
+        <button type="submit" id="setting__userInformation--save"><ion-icon name="save-outline"></ion-icon></button>
         <ion-icon name="close-outline"></ion-icon>
-        <img
-            src="{{ asset('assets/img/cart/1657619989.png') }}"
-            alt=""
-            class="card__user--avatar"
-        />
+        <img src="{{ Auth::user()->avatar }}" draggable="false" alt="" class="card__user--avatar" id="user__avatar" />
         <div class="card__content--wrap">
             <div class="card__info--name">{{ Auth::user()->name }}</div>
             <div class="card__info--email">{{ Auth::user()->email }}</div>
@@ -13,8 +12,13 @@
             <div class="card__info--updated">{{ Auth::user()->created_at }}</div>
         </div>
         <div class="card__infor--myProject">
-            <h3>On market:</h3>
-            <p>fkbsobd</p>
+            <h3>About {{ Auth::user()->name }}</h3>
+            <textarea name="user_description" id="card__user--description" type="text" disabled placeholder="About me ?" spellcheck="false">{{ Auth::user()->description }}</textarea>
         </div>
+        <dialog id="dialog__choose--avatar">
+            <label for="avatar__choose--url">Please fill your avatar's url</label><br>
+            <input type="text" name="avatar_url" id="avatar__choose--url" value="{{ Auth::user()->avatar }}">
+            <button type="button" id="choose__avatar--submit">Submit</button>
+        </dialog>
     </form>
 </dialog>

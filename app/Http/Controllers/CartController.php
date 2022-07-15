@@ -17,7 +17,8 @@ class CartController extends Controller
         //     'all_images' => $all_images,
         //     'length'=>$length,
         // ]);
-        $products = Cart::all();
+        $user_id = Auth::user()->id;
+        $products = DB::select("select * from carts where orderer = {$user_id}");
         return view('cart.cart', [
             'products'=>$products,
         ]);

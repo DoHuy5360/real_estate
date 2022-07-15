@@ -1,5 +1,5 @@
 @extends('layouts.header-footer')
-@section('title', $project->name)
+@section('title', $project->project_name)
 @section('contents')
     <div class="field__editAndBack">
         <a href="{{ url('/projects') }}">
@@ -38,20 +38,22 @@
     </div>
     <div class="the__project--all">
         <div class="project__title--wrap">
-            <p>{{ $project->name }}</p>
+            <p>{{ $project->project_name }}</p>
             <p>{{ $project->price }}</p>
-            <form action="{{ url("projects/{$project->id}") }}" id="form__add--product" method="POST">
+            <form action="{{ url('projects/add/cart') }}" id="form__add--product" method="POST">
                 @csrf
                 <input name="id" type="hidden" value="{{ $project->id }}">
                 <input name="source" type="hidden" value="{{ $project->source }}">
-                <button type="submit">Add to cart</button>
+                @if ($project->creator != Auth::user()->id && !isset($in_cart[0]->reference))
+                    <button type="submit">Add to cart</button>
+                @endif
             </form>
         </div>
         <div class="project__body">
             <img src="{{ $project->source }}" alt="" class="project__image--background">
             <div class="project__content">
                 <img src="{{ $project->source }}" alt="" class="project__image--small">
-                <div class="project__description">{{ $project->description }}</div>
+                <div class="project__description">{{ $project->project_description }}</div>
             </div>
             <div class="project__image--more">
                 <img src="{{ $project->source }}" alt="">
