@@ -9,15 +9,20 @@
                     <span>Lorum</span>
                 </div>
                 <div class="wrap__button--show">
-                    <button class="button__previous">←</button>
-                    <button class="button__next">→</button>
+                    <button type="button" class="button__previous">←</button>
+                    <button type="button" class="button__next">→</button>
                 </div>
                 <div class="wrap__number--location"><span>01</span>/<span>02</span></div>
             </div>
         </div>
-        <div class="demo__image--right">
-            <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=710&q=80" alt="">
-            <button class="button__show--redirect">VIEW PROJECT →</button>
+        <div class="demo__image--right" data-carousel>
+            @foreach ($all_projects as $project)
+                <div class="carousel__cell--image" style="--bg-img: url({{ $project->source }})">
+                    <x-redirect-btn url="/projects/{{ $project->id }}" title="VIEW PROJECT" add_class="button__show--redirect">
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </x-redirect-btn>
+                </div>
+            @endforeach
         </div>
     </div>
     {{-- ! end demo projects --}}
@@ -38,7 +43,7 @@
     <div class="mission">
         <h2>Our project</h2>
         <div class="product">
-            @foreach ($all_projects as $project)
+            @foreach ($limit_projects as $project)
                 <div class="img">
                     <img src="{{ $project->source }}" alt="">
                 </div>

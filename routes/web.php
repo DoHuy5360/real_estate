@@ -35,6 +35,7 @@ Route::middleware(['auth'])->prefix('projects')->group(
                 Route::post('/project', [ProjectsController::class, 'saveProject'])->name('projects.view');
             }
         );
+        Route::post('/delete', [ProjectsController::class, 'deleteProject']);
         Route::get('/{project_id}', [ProjectsController::class, 'showProject'])->name('projects.view');
         Route::get('/', [ProjectsController::class, 'index'])->name('projects.projects');
     }
@@ -45,9 +46,5 @@ Route::middleware(['auth'])->prefix('cart')->group(function () {
 });
 
 Route::post('/user/edit',[UserController::class, 'editInformation']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';

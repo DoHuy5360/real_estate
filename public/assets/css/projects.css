@@ -16,15 +16,9 @@
     border-bottom: 1px solid #f2f2f2;
     position: relative;
 }
-#btn__project--add{
-    background-color: #6b7280;
-    padding: 10px 20px;
-    border: unset;
-    position: absolute;
-    right: 0;
-    top: 0;
-    color: white;
-    border-radius: 5px;
+.ourprojects__title a{
+    display: inline-block;
+    margin: 20px 0;
 }
 .ourprojects__cards--wrap {
     display: flex;
@@ -65,6 +59,7 @@
     cursor: pointer;
     transition: 300ms;
     clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: 8;
 }
 .product__creator--explorer{
     width: 100%;
@@ -103,10 +98,10 @@
     object-fit: cover;
 }
 .projectcard__title {
-    font-size: 2.5em;
+    font-size: 2em;
 }
 .projectcard__description {
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: justify;
     height: 60%;
     overflow: scroll;
@@ -115,20 +110,6 @@
 }
 .projectcard__text--wrap a {
     width: 200px;
-}
-.projectcard__btn--viewmore {
-    border: unset;
-    width: 100%;
-    height: 50px;
-    transition: 300ms;
-    font-weight: bold;
-    color: white;
-    background-color: #6b7280;
-    border-radius: 5px;
-}
-.projectcard__btn--viewmore:hover {
-    color: #6b7280;
-    background-color: #d6d6d6;
 }
 .wrap__changeslide--projects {
     display: flex;

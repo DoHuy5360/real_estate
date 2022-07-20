@@ -10,7 +10,7 @@ button {
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 ::-webkit-scrollbar {
     width: 0;
@@ -24,11 +24,11 @@ button {
     background-color: var(--second-color);
     margin: 0 auto;
     padding: 50px;
+    border-radius: 10px;
 }
 
 .about-us .containt1 {
     width: 50%;
-    background: var(--main-color);
     height: 500px;
     position: relative;
 }
@@ -36,7 +36,6 @@ button {
 .about-us .containt1 .cover {
     width: 100%;
     height: 500px;
-    background: black;
     filter: opacity(40%);
     z-index: 1;
     position: absolute;
@@ -59,6 +58,7 @@ button {
     height: 500px;
     transform: scaleX(-1);
     z-index: 0;
+    border-radius: 10px;
 }
 
 .about-us .containt2 {
@@ -71,11 +71,12 @@ button {
 .about-us .containt2 #read-more {
     padding: 10px 20px;
     position: absolute;
-    background-color: #6B7280;
+    background-color: #6b7280;
     bottom: 0;
     right: 0;
     color: white;
     border: unset;
+    border-radius: 10px;
 }
 
 .mission {
@@ -87,6 +88,7 @@ button {
     margin: 50px auto;
     padding: 50px;
     gap: 30px;
+    border-radius: 10px;
 }
 
 .mission .product {
@@ -95,6 +97,8 @@ button {
     background-color: var(--main-color);
     display: flex;
     justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .mission .left:hover,
@@ -123,20 +127,23 @@ button {
 
 .mission #read-more {
     padding: 10px 20px;
-    background-color: #6B7280;
+    background-color: #6b7280;
     color: white;
     border: unset;
     width: 100%;
+    border-radius: 10px;
 }
 /* ! start contact us */
 .map-contact {
     width: 80%;
     height: 400px;
-    background-color: rgba(211, 211, 211, 0.392);
+    background-color: #d3d3d364;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .map-contact #content-1 {
     width: 45%;
@@ -171,6 +178,7 @@ iframe {
     text-align: center;
     color: #fff;
     background: #000;
+    border-radius: 10px;
 }
 /************** code huy************** */
 /*!  demo project */
@@ -228,22 +236,23 @@ iframe {
 /*! show img right */
 .demo__image--right {
     width: 60%;
+    overflow: hidden;
     position: relative;
-    background-color: lightblue;
+    border-radius: 10px;
 }
-.demo__image--right img {
-    position: absolute;
+.carousel__cell--image {
+    background-image: var(--bg-img);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border-radius: 10px;
 }
 .button__show--redirect {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    background-color: #ffffff;
-    border: unset;
-    padding: 20px 30px;
 }
 /* ! start contact us */
 .wrap__contact {

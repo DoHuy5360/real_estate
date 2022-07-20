@@ -1,38 +1,24 @@
 @extends('layouts.header-footer')
 @section('title', 'Edit project')
 @section('contents')
-<div class="box__message">
-    @if (Session::has('edit-success'))
-            <x-alert-message>
-                <x-slot name="status">
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                </x-slot>
-                <x-slot name="message">
-                    {{ __(Session::get('edit-success')) }}
-                </x-slot>
-                <x-slot name="color">
-                    {{ __('lightgreen') }}
-                </x-slot>
+    <div class="box__message">
+        @if (Session::has('edit-success'))
+            <x-alert-message :message="Session::get('edit-success')" color="lightgreen">
+                <ion-icon name="checkmark-outline"></ion-icon>
             </x-alert-message>
         @elseif (Session::has('edit-fail'))
-            <x-alert-message>
-                <x-slot name="status">
-                    <ion-icon name="alert-outline"></ion-icon>
-                </x-slot>
-                <x-slot name="message">
-                    {{ __(Session::get('edit-fail')) }}
-                </x-slot>
-                <x-slot name="color">
-                    {{ __('lightsalmon') }}
-                </x-slot>
+            <x-alert-message :message="Session::get('edit-fail')" color="lightpink">
+                <ion-icon name="alert-outline"></ion-icon>
             </x-alert-message>
         @endif
-</div>
+    </div>
     <div class="field__editAndBack">
-        <a href="{{ url("projects/{$project->id}") }}">
-            <button id="project__button--back">Back</button>
-        </a>
-        <button type="submit" form="form__update" id="project__button--edit">Update</button>
+        <x-redirect-btn url="projects/{{ $project->id }}" title="Stop edit">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </x-redirect-btn>
+        <x-submit-btn title="Save change" form="form__update" style="normal">
+            <ion-icon name="save-outline"></ion-icon>
+        </x-submit-btn>
     </div>
     <form action="{{ url("projects/edit/{$project->id}") }}" method="POST" id="form__update">
         @csrf

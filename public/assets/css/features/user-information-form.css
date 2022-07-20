@@ -24,6 +24,7 @@
     outline: 10px solid #6b7280;
     border: 5px solid white;
     position: absolute;
+    object-fit: cover;
 }
 
 .card__content--wrap {
@@ -45,20 +46,21 @@
     overflow: scroll;
     width: 100%;
 }
-#card__user--description{
+#card__user--description {
     white-space: pre-line;
     background-color: transparent;
     outline: none;
+    border: 2px inset #7676764d;
     height: 100%;
     width: 100%;
     resize: none;
     padding: 5px;
     color: white;
 }
-#card__user--description::placeholder{
+#card__user--description::placeholder {
     color: white;
 }
-#choose__avatar{
+#choose__avatar {
     display: none;
 }
 ion-icon[name="settings-outline"],
@@ -69,16 +71,21 @@ ion-icon[name="close-outline"] {
     cursor: pointer;
     padding: 5px;
     color: white;
+    transition: 300ms;
 }
 ion-icon[name="close-outline"] {
     right: 10px;
     top: 10px;
 }
+ion-icon[name="settings-outline"]:hover,
+ion-icon[name="close-outline"]:hover {
+    transform: rotate(90deg) scale(1.1);
+}
 ion-icon[name="settings-outline"] {
     left: 10px;
     top: 10px;
 }
-#setting__userInformation--save{
+#setting__userInformation--save {
     position: absolute;
     font-size: 1.5em;
     font-weight: bold;
@@ -92,7 +99,10 @@ ion-icon[name="settings-outline"] {
     outline: none;
     visibility: hidden;
 }
-#dialog__choose--avatar{
+#setting__userInformation--save:hover{
+    color: lightgreen;
+}
+#dialog__choose--avatar {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -101,20 +111,38 @@ ion-icon[name="settings-outline"] {
     padding: 10px;
     border-radius: 5px;
 }
-#dialog__choose--avatar label{
+#dialog__choose--avatar label {
     font-weight: bold;
 }
-#avatar__choose--url{
+#avatar__choose--url {
     height: 50px;
     outline: none;
     width: 400px;
     padding-left: 5px;
 }
-#choose__avatar--submit{
+#choose__avatar--submit {
     height: 50px;
     width: 100px;
     background-color: #6b7280;
     color: white;
     border: unset;
     border-radius: 0 5px 5px 0;
+}
+.card__country--field {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+#country__image--small {
+    width: 30px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px 0 #00000033;
+}
+#country__name {
+    width: 100px;
+    outline: unset;
+    background-color: unset;
+    color: white;
+    padding-left: 5px;
 }

@@ -1,6 +1,6 @@
 <div class="header__navbar" id="header">
     <div class="navbar__element--logo">
-        <x-application-logo style="width: 80px;"></x-application-logo>
+        <x-application-logo style="width: 80px; height: fit-content;"></x-application-logo>
     </div>
     <div class="wrap__elements">
         <a href="/" class="link__element--wrap {{ request()->is('/') ? 'link__active' : '' }}">

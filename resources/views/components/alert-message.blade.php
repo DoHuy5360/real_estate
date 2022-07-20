@@ -1,6 +1,7 @@
-<div  style="--color: {{ $color }}" class="toast__message">
+@props(['message','color'])
+<div style="--color: {{ $color }}" class="toast__message">
     <div class="toast__icon">
-        {{ $status }}
+        {{ $slot }}
     </div>
     <div class="toast__text">
         <div class="toast__title">Note</div>

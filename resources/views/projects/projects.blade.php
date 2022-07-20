@@ -1,11 +1,24 @@
 @extends('layouts.header-footer')
 @section('title', 'Projects')
 @section('contents')
+    @if (Session::has('delete-success'))
+        <x-alert-message>
+            <x-slot name="status">
+                <ion-icon name="checkmark-outline"></ion-icon>
+            </x-slot>
+            <x-slot name="message">
+                {{ __(Session::get('delete-success')) }}
+            </x-slot>
+            <x-slot name="color">
+                {{ __('lightgreen') }}
+            </x-slot>
+        </x-alert-message>
+    @endif
     <div class="wrap__ourprojects">
-        <div class="ourprojects__title"><span>Our</span><br /><span>Projects</span>
-            <a href="{{ url('projects/add/project') }}">
-                <button id="btn__project--add">Add project</button>
-            </a>
+        <div class="ourprojects__title"><span>Our</span><br /><span>Projects</span><br>
+            <x-redirect-btn url="/projects/add/project" title="Add new project">
+                <ion-icon name="add-circle-outline"></ion-icon>
+            </x-redirect-btn>
         </div>
         <div class="ourprojects__cards--wrap">
             @foreach ($all_projects as $project)
@@ -19,15 +32,16 @@
                                 <h2>Name: {{ $project->name }}</h2>
                                 <p>Email: {{ $project->email }}</p>
                                 <p>Phone: {{ $project->phone }}</p>
+                                <p>Country: {{ $project->country }}</p>
                                 <p>About {{ $project->name }}: {{ $project->description }}</p>
                             </div>
                             <img src="{{ $project->avatar }}" alt="" class="project__creator--avatar" title="{{ $project->name }}">
                         </div>
                         <div class="projectcard__title">{{ $project->project_name }}</div>
                         <div class="projectcard__description">{{ $project->project_description }}</div>
-                        <a href="{{ url("projects/{$project->id}") }}">
-                            <button type="button" class="projectcard__btn--viewmore">VIEW MORE →</button>
-                        </a>
+                        <x-redirect-btn url="/projects/{{$project->id}}" title="VIEW MORE">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </x-redirect-btn>
                     </div>
                 </div>
             @endforeach

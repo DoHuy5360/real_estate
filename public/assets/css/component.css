@@ -1,0 +1,43 @@
+:root {
+    --small-radius: 5px;
+}
+a{
+    text-decoration: none;
+}
+.component__button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    border-radius: var(--small-radius);
+    padding: 10px 20px;
+}
+.normal{
+    --color: #00ae09;
+    color: var(--color);
+    background-color: transparent;
+    border: 1px dashed;
+    transition: 300ms;
+}
+.normal:hover {
+    color: white;
+    background-color: var(--color);
+    border: 1px solid;
+}
+.delete {
+    --color: #ff0000be;
+    color: var(--color);
+    background-color: transparent;
+    border: 1px dashed;
+    transition: 300ms;
+}
+.delete:hover {
+    color: white;
+    background-color: var(--color);
+    border: 1px solid;
+}
+.component__button--redirect{
+    border: unset;
+    background-color: #6b7280;
+    color: white;
+}

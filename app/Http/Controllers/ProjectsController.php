@@ -12,7 +12,11 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        $all_projects = DB::select("select p.id, project_name, price, source, creator, project_description, name, phone, email, avatar, description from projects p, users u where p.creator = u.id");
+        $all_projects = DB::select("
+            SELECT p.id, project_name, price, source, creator, project_description, name, phone, email, avatar, country, description
+            FROM public.projects p, public.users u
+            WHERE p.creator::integer = u.id::integer
+        ");
         return view('projects.projects', [
             'all_projects' => $all_projects,
         ]);
@@ -20,7 +24,11 @@ class ProjectsController extends Controller
     public function showProject($project_id)
     {
         $project = Project::getDataProject($project_id);
-        $in_cart = DB::select("select * from carts where reference = {$project_id}");
+        $in_cart = DB::select(
+            "select * 
+            from public.carts 
+            where reference = '{$project->id}'"
+        );
         return view('projects.view', [
             'project' => $project,
             'in_cart' => $in_cart,
@@ -57,9 +65,14 @@ class ProjectsController extends Controller
         }
         return redirect()->back()->with('edit-success', 'Edit success!');
     }
+    public function deleteProject(Request $request)
+    {
+        DB::delete("delete from projects where id = {$request->id}");
+        return redirect('projects')->with('delete-success', 'Delete successfully!');
+    }
     public function addToCart(Request $request)
     {
-        $check = DB::select("select orderer from carts where reference = {$request->id}");
+        $check = DB::select("select orderer from carts where reference = '{$request->id}'");
         if ($check) {
             $respective_user = DB::select("select name from users where id = {$check[0]->orderer}");
             // dd($check);
