@@ -1,3 +1,7 @@
+@php
+$user_id = Auth::user()->id;
+$amount_of_product = DB::select("select count(*) from carts where orderer = '{$user_id}'")[0]->count;
+@endphp
 <div class="header__navbar" id="header">
     <div class="navbar__element--logo">
         <x-application-logo style="width: 80px; height: fit-content;"></x-application-logo>
@@ -10,6 +14,7 @@
         </a>
         <a href="{{ url('cart') }}" class="link__element--wrap {{ request()->is('cart') ? 'link__active' : '' }}">
             <div class="navbar__element--redirect">
+                <div id="cart__project--amount">{{ $amount_of_product }}</div>
                 <ion-icon name="cart-outline"></ion-icon><span>Cart</span>
             </div>
         </a>

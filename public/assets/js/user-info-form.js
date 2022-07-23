@@ -62,7 +62,6 @@ btn_user_setting.addEventListener("click", (e) => {
 let save_user_setting = document.getElementById(
     "setting__userInformation--save"
 );
-console.log(LIST_COUNTRIES[country_name.value]);
 save_user_setting.addEventListener("click", (e) => {
     save_user_setting.style.visibility = "hidden";
     btn_user_setting.style.visibility = "visible";

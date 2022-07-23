@@ -8,9 +8,10 @@ a{
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 20px;
+    font-size: 17px;
     border-radius: var(--small-radius);
-    padding: 10px 20px;
+    padding: 5px 10px;
+    box-sizing: border-box;
 }
 .normal{
     --color: #00ae09;

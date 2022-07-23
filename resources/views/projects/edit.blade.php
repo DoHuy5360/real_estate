@@ -32,7 +32,7 @@
                 <input name="source" value="{{ $project->source }}" alt="" class="project__image--background">
                 <div class="project__content">
                     <input name="source" value="{{ $project->source }}" alt="" class="project__image--small">
-                    <textarea style="resize: none;" name="description" class="project__description">{{ $project->project_description }}</textarea>
+                    <textarea name="description" style="resize: none;" class="project__description">{{ $project->project_description }}</textarea>
                 </div>
                 <div class="project__image--more">
                     <input name="source" value="{{ $project->source }}" alt="">

@@ -18,9 +18,10 @@ class CartController extends Controller
         //     'length'=>$length,
         // ]);
         $user_id = Auth::user()->id;
-        $products = DB::select("select * 
-        from public.carts 
-        where orderer = '{$user_id}'
+        $products = DB::select("
+            select * 
+            from public.carts 
+            where orderer = '{$user_id}'
         ");
         return view('cart.cart', [
             'products'=>$products,

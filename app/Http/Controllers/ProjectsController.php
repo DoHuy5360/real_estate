@@ -23,72 +23,79 @@ class ProjectsController extends Controller
     }
     public function showProject($project_id)
     {
-        $project = Project::getDataProject($project_id);
+        $user_id = Auth::user()->id;
+        $project = DB::select("
+            select p.id, u.id as user_id, project_name, role, description, avatar, country, email, phone, name, project_description, creator, source, price
+            from public.projects p, public.users u
+            where p.id = {$project_id} and p.creator::integer = u.id::integer
+        ")[0];
+        // dd($project);
         $in_cart = DB::select(
             "select * 
             from public.carts 
-            where reference = '{$project->id}'"
+            where reference = '{$project_id}' and orderer = '{$user_id}'"
         );
+        // dd($in_cart);
+        $all_project_id_in_cart = DB::select("
+            select reference
+            from carts
+            where orderer = '{$user_id}'
+        ");
+        $array_project_id_in_cart = [];
+        foreach ($all_project_id_in_cart as $reference => $value) {
+            array_push($array_project_id_in_cart, $value->reference);
+        }
+        // dd($array_project_id_in_cart);
+        $all_creator_project = DB::select("
+            select * 
+            from public.projects p
+            where p.creator = '{$project->user_id}'
+        ");
+        // dd($all_creator_project);
         return view('projects.view', [
             'project' => $project,
             'in_cart' => $in_cart,
+            'all_creator_project' => $all_creator_project,
+            'array_project_id_in_cart' => $array_project_id_in_cart,
         ]);
     }
     public function addProject()
     {
         return view('projects.add');
     }
-    public function saveProject(Request $request)
+    public function saveProject(Request $form)
     {
-        $project = new Project;
-        $project->project_name = $request->project_name;
-        $project->price = $request->price;
-        $project->source = $request->source;
-        $project->creator = Auth::user()->id;
-        $project->project_description = "{$request->project_description}";
-        $project->save();
+        $empty_project = new Project;
+        Project::_save($form, $empty_project);
         return redirect()->back()->with('add-success', 'Add successfully!');
     }
     public function editProject($project_id)
     {
-        $project = Project::getDataProject($project_id);
+        $project = Project::_select($project_id);
         return view('projects.edit', [
             'project' => $project,
         ]);
     }
-    public function updateProjectController(Request $request, $project_id)
+    public function updateProject(Request $request, $project_id)
     {
         try {
-            Project::updateProject($request, $project_id);
+            Project::_update($request, $project_id);
         } catch (\Throwable $th) {
             return redirect()->back()->with('edit-fail', 'Edit fail!');
         }
         return redirect()->back()->with('edit-success', 'Edit success!');
     }
-    public function deleteProject(Request $request)
+    public function deleteProject(Request $form)
     {
-        DB::delete("delete from projects where id = {$request->id}");
+        Project::_delete($form);
         return redirect('projects')->with('delete-success', 'Delete successfully!');
     }
-    public function addToCart(Request $request)
+    public function addToCart(Request $form)
     {
-        $check = DB::select("select orderer from carts where reference = '{$request->id}'");
-        if ($check) {
-            $respective_user = DB::select("select name from users where id = {$check[0]->orderer}");
-            // dd($check);
-            return redirect()->back()->with('add-fail', "Project was picked up by user {$respective_user[0]->name}");
-        } else {
-            $project = DB::select("select * from projects where id = {$request->id}")[0];
-            $cart = new Cart;
-            $cart->name = $project->project_name;
-            $cart->price = $project->price;
-            $cart->reference = $project->id;
-            $cart->orderer = Auth::user()->id;
-            $cart->source = $project->source;
-            $cart->save();
-            return redirect()->back()->with('add-success', 'Add successfully!');
-        }
-        $this->duplicate_handle = $request->id;
+        // return redirect()->back()->with('add-fail', "Project was picked up by user {$respective_user[0]->name}");
+        $empty_cart = new Cart;
+        Cart::_add($form, $empty_cart);
+        return redirect()->back()->with('add-success', 'Add successfully!');
     }
     public function saveImage(Request $request)
     {

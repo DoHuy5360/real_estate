@@ -14,7 +14,9 @@
     </div>
     <div class="cart__background--show">
         <div id="cart__frame--wrap">
-            <?php $count = 0; ?>
+            @php
+                $count = 0;
+            @endphp
             @foreach ($products as $product)
                 <div class="product__card">
                     <span>{{ ++$count }}</span>

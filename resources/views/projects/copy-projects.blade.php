@@ -22,16 +22,26 @@
         </div>
         <div class="ourprojects__cards--wrap">
             @foreach ($all_projects as $project)
-                <div class="project__card" style="--bg-img: url({{ $project->source }})">
-                    <div class="card__layer">
-                        <div class="card__information">
-                            <h2 class="card__project--name">{{ $project->project_name }}</h2>
-                            <p>{{ $project->price }}</p>
-                            <img id="creator__avatar--inprojects" src="{{ $project->avatar }}" alt="">
-                            <x-redirect-btn url="/projects/{{ $project->id }}" title="VIEW MORE" add_class="card__information--button">
-                                <ion-icon name="arrow-forward-outline"></ion-icon>
-                            </x-redirect-btn>
+                <div class="project__card">
+                    <div class="projectcard__img--wrap">
+                        <img src="{{ $project->source }}" alt="{{ $project->name }}" />
+                    </div>
+                    <div class="projectcard__text--wrap">
+                        <div class="project__creator--info">
+                            <div class="creator__avatar--cover">
+                                <h2>Name: {{ $project->name }}</h2>
+                                <p>Email: {{ $project->email }}</p>
+                                <p>Phone: {{ $project->phone }}</p>
+                                <p>Country: {{ $project->country }}</p>
+                                <p>About {{ $project->name }}: {{ $project->description }}</p>
+                            </div>
+                            <img src="{{ $project->avatar }}" alt="" class="project__creator--avatar" title="{{ $project->name }}">
                         </div>
+                        <div class="projectcard__title">{{ $project->project_name }}</div>
+                        <div class="projectcard__description">{{ $project->project_description }}</div>
+                        <x-redirect-btn url="/projects/{{ $project->id }}" title="VIEW MORE">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </x-redirect-btn>
                     </div>
                 </div>
             @endforeach

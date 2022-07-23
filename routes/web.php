@@ -24,7 +24,7 @@ Route::middleware(['auth'])->prefix('projects')->group(
             ['prefix' => 'edit'],
             function () {
                 Route::get('/{project_id}', [ProjectsController::class, 'editProject'])->name('projects.edit');
-                Route::post('/{project_id}', [ProjectsController::class, 'updateProjectController'])->name('projects.edit');
+                Route::post('/{project_id}', [ProjectsController::class, 'updateProject'])->name('projects.edit');
             }
         );
         Route::group(
@@ -47,4 +47,7 @@ Route::middleware(['auth'])->prefix('cart')->group(function () {
 
 Route::post('/user/edit',[UserController::class, 'editInformation']);
 
+Route::get('/public', function(){
+    return view('public');
+});
 require __DIR__ . '/auth.php';

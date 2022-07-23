@@ -1,4 +1,4 @@
-window.onload = function () {
+function setUpFlickity() {
     var options = {
         accessibility: true,
         prevNestButtons: true,
@@ -23,4 +23,6 @@ window.onload = function () {
             image.style.backgroundPosision = x + "px";
         });
     });
-};
+}
+
+setUpFlickity()
