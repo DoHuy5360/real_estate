@@ -1,6 +1,6 @@
 /*! start Footer */
 .wrap__footer {
-    background-color: #333333;
+    background-color: var(--black-pure);
 }
 .footer__twopart {
     display: grid;
@@ -8,7 +8,7 @@
     width: 80%;
     margin: auto;
     padding: 55px 0 0 0;
-    color: white;
+    color: var(--white-pure);
     margin-top: 30px;
 }
 .footer__part--top {
@@ -27,12 +27,12 @@
 .footer__logo {
     width: 100px;
     height: 100px;
-    background-color: black;
+    background-color: var(--black-pure);
 }
 .footer__part--bottom {
     text-align: center;
     border-top: 1px solid #414141;
-    color: white;
+    color: var(--white-pure);
     padding: 30px;
     margin-top: 20px;
 }

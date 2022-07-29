@@ -25,9 +25,13 @@
                 <div class="project__card" style="--bg-img: url({{ $project->source }})">
                     <div class="card__layer">
                         <div class="card__information">
-                            <h2 class="card__project--name">{{ $project->project_name }}</h2>
-                            <p>{{ $project->price }}</p>
-                            <img id="creator__avatar--inprojects" src="{{ $project->avatar }}" alt="">
+                            <div class="card__column--nameAvatar">
+                                <img class="creator__avatar--inprojects" src="{{ $project->avatar }}" draggable="false" alt="">
+                                <div class="card__info--namePrice">
+                                    <p class="card__project--name">{{ $project->project_name }}</p>
+                                    <p class="card__project--price">{{ $project->price }}</p>
+                                </div>
+                            </div>
                             <x-redirect-btn url="/projects/{{ $project->id }}" title="VIEW MORE" add_class="card__information--button">
                                 <ion-icon name="arrow-forward-outline"></ion-icon>
                             </x-redirect-btn>

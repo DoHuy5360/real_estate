@@ -38,7 +38,7 @@
             @endforeach
         </div>
         <center>
-            <button id="product__button--showMore">
+            <button id="product__button--showMore" type="button">
                 <p>Show more</p>
                 <ion-icon name="chevron-down-outline"></ion-icon>
             </button>

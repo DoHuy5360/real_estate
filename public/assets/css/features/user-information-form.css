@@ -9,7 +9,7 @@
 .card__user--information {
     width: 400px;
     height: 400px;
-    background-color: #6b7280;
+    background-color: var(--gray-solid);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -21,8 +21,8 @@
     border-radius: 50%;
     align-self: center;
     transform: translateY(-50%);
-    outline: 10px solid #6b7280;
-    border: 5px solid white;
+    outline: 10px solid var(--gray-solid);
+    border: 5px solid var(--white-pure);
     position: absolute;
     object-fit: cover;
 }
@@ -34,7 +34,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    color: white;
+    color: var(--white-pure);
 }
 .card__content--wrap .card__info--name {
     font-size: 2em;
@@ -55,10 +55,10 @@
     width: 100%;
     resize: none;
     padding: 5px;
-    color: white;
+    color: var(--white-pure);
 }
 #card__user--description::placeholder {
-    color: white;
+    color: var(--white-pure);
 }
 #choose__avatar {
     display: none;
@@ -70,7 +70,7 @@ ion-icon[name="close-outline"] {
     font-weight: bold;
     cursor: pointer;
     padding: 5px;
-    color: white;
+    color: var(--white-pure);
     transition: 300ms;
 }
 ion-icon[name="close-outline"] {
@@ -91,7 +91,7 @@ ion-icon[name="settings-outline"] {
     font-weight: bold;
     cursor: pointer;
     padding: 5px;
-    color: white;
+    color: var(--white-pure);
     border: unset;
     background-color: transparent;
     top: 40px;
@@ -123,8 +123,8 @@ ion-icon[name="settings-outline"] {
 #choose__avatar--submit {
     height: 50px;
     width: 100px;
-    background-color: #6b7280;
-    color: white;
+    background-color: var(--gray-solid);
+    color: var(--white-pure);
     border: unset;
     border-radius: 0 5px 5px 0;
 }
@@ -143,6 +143,6 @@ ion-icon[name="settings-outline"] {
     width: 100px;
     outline: unset;
     background-color: unset;
-    color: white;
+    color: var(--white-pure);
     padding-left: 5px;
 }

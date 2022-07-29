@@ -12,7 +12,7 @@ let card_project_name = document.querySelectorAll(".card__project--name");
 
 card_project_name.forEach((project_name) => {
     project_name.addEventListener("click", (e) => {
-        project_name.classList.toggle('show_full--name')
+        project_name.classList.toggle("show_full--name");
     });
 });
 // todo: render corresponding flag image in project-view
@@ -21,7 +21,7 @@ function renderFlagImage() {
     document.getElementById("user__country--flag").src =
         LIST_COUNTRIES[country_name.innerText];
 }
-
+// todo: to switch tab project
 let user_show_projects_button = document.getElementById(
     "project__showAll--relative"
 );
@@ -34,26 +34,30 @@ let project_information_right = document.getElementById("div__embed--fixed");
 let project_information_right_wrap = document.getElementById(
     "project__content--information"
 );
+function private_switchTabInProjectView(_on_of) {
+    project_overview.style.borderBottom = _on_of
+        ? "unset"
+        : "5px solid #6B7280";
+    user_show_projects_button.style.borderBottom = _on_of
+        ? "5px solid #6B7280"
+        : "unset";
+    project_information_right_wrap.style.gridTemplateColumns = _on_of
+        ? "unset"
+        : "1fr 270px";
+    project_contents.style.display = _on_of ? "none" : "block";
+    project_information_right.style.display = _on_of ? "none" : "block";
+    user_projects_all.style.display = _on_of ? "flex" : "none";
+}
 user_show_projects_button.addEventListener("click", (e) => {
-    project_contents.style.display = "none";
-    project_overview.style.borderBottom = "unset";
-    user_show_projects_button.style.borderBottom = "5px solid #6B7280";
-    project_information_right.style.display = "none";
-    user_projects_all.style.display = "flex";
-    project_information_right_wrap.style.gridTemplateColumns = "unset";
+    private_switchTabInProjectView(true);
 });
 project_overview.addEventListener("click", (e) => {
-    project_contents.style.display = "block";
-    project_overview.style.borderBottom = "5px solid #6B7280";
-    user_show_projects_button.style.borderBottom = "unset";
-    project_information_right.style.display = "block";
-    user_projects_all.style.display = "none";
-    project_information_right_wrap.style.gridTemplateColumns = "1fr 270px";
+    private_switchTabInProjectView(false);
 });
 
 renderFlagImage();
 
-// todo : project-view feature -> pause operation
+// todo: project-view feature -> pause operation
 // window.onscroll = function () {
 //     fixed();
 //     console.log(window.location.href);

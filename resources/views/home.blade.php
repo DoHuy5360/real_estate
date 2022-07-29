@@ -8,10 +8,6 @@
                     <span>PROJECT</span><br>
                     <span>Lorum</span>
                 </div>
-                <div class="wrap__button--show">
-                    <button type="button" class="button__previous">←</button>
-                    <button type="button" class="button__next">→</button>
-                </div>
                 <div class="wrap__number--location"><span>01</span>/<span>02</span></div>
             </div>
         </div>

@@ -25,7 +25,25 @@ class ProjectsController extends Controller
     {
         $user_id = Auth::user()->id;
         $project = DB::select("
-            select p.id, u.id as user_id, project_name, role, description, avatar, country, email, phone, name, project_description, creator, source, price
+            select 
+                p.id, 
+                u.id as user_id, 
+                project_address, 
+                project_acreage, 
+                project_tip, 
+                project_name, 
+                project_type,
+                role, 
+                description, 
+                avatar, 
+                country, 
+                email, 
+                phone, 
+                name, 
+                project_description, 
+                creator, 
+                source, 
+                price
             from public.projects p, public.users u
             where p.id = {$project_id} and p.creator::integer = u.id::integer
         ")[0];
@@ -65,25 +83,20 @@ class ProjectsController extends Controller
     }
     public function saveProject(Request $form)
     {
+        // return $form;
         $empty_project = new Project;
         Project::_save($form, $empty_project);
         return redirect()->back()->with('add-success', 'Add successfully!');
     }
-    public function editProject($project_id)
+    public function updateProject(Request $form)
     {
-        $project = Project::_select($project_id);
-        return view('projects.edit', [
-            'project' => $project,
-        ]);
-    }
-    public function updateProject(Request $request, $project_id)
-    {
-        try {
-            Project::_update($request, $project_id);
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('edit-fail', 'Edit fail!');
+        // return $form;
+        $updated = Project::_update($form);
+        if ($updated) {
+            return redirect()->back()->with('success', 'Edit success!');
+        } else {
+            return redirect()->back()->with('fail', 'Edit fail!');
         }
-        return redirect()->back()->with('edit-success', 'Edit success!');
     }
     public function deleteProject(Request $form)
     {
@@ -95,7 +108,7 @@ class ProjectsController extends Controller
         // return redirect()->back()->with('add-fail', "Project was picked up by user {$respective_user[0]->name}");
         $empty_cart = new Cart;
         Cart::_add($form, $empty_cart);
-        return redirect()->back()->with('add-success', 'Add successfully!');
+        return redirect()->back()->with('success', 'Add successfully!');
     }
     public function saveImage(Request $request)
     {

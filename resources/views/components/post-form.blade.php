@@ -1,4 +1,4 @@
-@props(['hidden_inputs', 'url', 'id'])
+@props(['hidden_inputs'=>[], 'url', 'id'])
 <form action={{ url($url) }} id={{ $id }} method="POST">
     @csrf
     @foreach ($hidden_inputs as $name => $value)

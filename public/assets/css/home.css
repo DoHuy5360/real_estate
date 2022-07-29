@@ -1,9 +1,3 @@
-:root {
-    --main-width: 80%;
-    --main-color: #fff;
-    --second-color: #d3d3d364;
-    --third-color: #d3d3d3cb;
-}
 button {
     cursor: pointer;
 }
@@ -21,7 +15,7 @@ button {
     align-items: center;
     height: 600px;
     width: 80%;
-    background-color: var(--second-color);
+    background-color: var(--gray-solid);
     margin: 0 auto;
     padding: 50px;
     border-radius: 10px;
@@ -36,13 +30,13 @@ button {
 .about-us .containt1 .cover {
     width: 100%;
     height: 500px;
-    filter: opacity(40%);
-    z-index: 1;
     position: absolute;
+    z-index: 4;
+    background-color: #0000006b;
 }
 
 .about-us .containt1 .cover p {
-    color: #fff;
+    color: white;
     font-size: 5rem;
     font-weight: bold;
     max-width: 100px;
@@ -56,7 +50,8 @@ button {
     object-fit: cover;
     width: 100%;
     height: 500px;
-    transform: scaleX(-1);
+    opacity: .8;
+    filter: grayscale(70%);
     z-index: 0;
     border-radius: 10px;
 }
@@ -66,22 +61,24 @@ button {
     padding: 0 50px;
     position: relative;
     height: 100%;
+    color: black;
 }
 
 .about-us .containt2 #read-more {
     padding: 10px 20px;
     position: absolute;
-    background-color: #6b7280;
+    background-color: var(--gray-soft);
     bottom: 0;
     right: 0;
-    color: white;
+    color: black;
     border: unset;
     border-radius: 10px;
 }
 
 .mission {
+    color: black;
     width: var(--main-width);
-    background-color: var(--second-color);
+    background-color: var(--gray-solid);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -94,7 +91,7 @@ button {
 .mission .product {
     width: 100%;
     height: 350px;
-    background-color: var(--main-color);
+    background-color: var(--white-pure);
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
@@ -103,7 +100,7 @@ button {
 
 .mission .left:hover,
 .right:hover {
-    background-color: var(--second-color);
+    background-color: var(--gray-solid);
 }
 
 .mission .img:nth-child(n) {
@@ -127,8 +124,8 @@ button {
 
 .mission #read-more {
     padding: 10px 20px;
-    background-color: #6b7280;
-    color: white;
+    background-color: var(--gray-soft);
+    color: black;
     border: unset;
     width: 100%;
     border-radius: 10px;
@@ -137,7 +134,7 @@ button {
 .map-contact {
     width: 80%;
     height: 400px;
-    background-color: #d3d3d364;
+    background-color: var(--gray-solid);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,12 +148,13 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: black;
 }
 .map-contact #content-2 {
     width: 55%;
     height: inherit;
     overflow: hidden;
-    background: #d3d3d3cb;
+    background: var(--gray-soft);
 }
 iframe {
     width: 100%;
@@ -169,14 +167,14 @@ iframe {
     line-height: 35px;
 }
 .map-contact span:nth-child(1) {
-    color: #d3d3d3cb;
+    color: black;
     font-weight: normal;
 }
 .map-contact input {
     width: 130px;
     height: 50px;
     text-align: center;
-    color: #fff;
+    color: black;
     background: #000;
     border-radius: 10px;
 }
@@ -198,38 +196,14 @@ iframe {
     margin-bottom: 100px;
 }
 .wrap__text--tittle span:first-child {
-    color: #bdbdbd;
+    color: black;
 }
 .wrap__text--tittle span:last-child {
     font-weight: bold;
 }
-.wrap__button--show {
-    display: flex;
-    gap: 25px;
-    margin-bottom: 70px;
-}
-.wrap__button--show button {
-    background-color: #ffffff;
-    width: 55px;
-    border: 1px solid #f5f5f5;
-    height: 55px;
-}
-.wrap__button--show button:last-child {
-    background-color: #f9f9f9;
-    position: relative;
-}
-.wrap__button--show button:last-child::after {
-    content: "";
-    position: absolute;
-    width: 400px;
-    height: 1px;
-    background-color: #f2f2f2;
-    left: 100%;
-    top: 50%;
-}
 .wrap__number--location {
     font-size: 2em;
-    color: #bdbdbd;
+    color: black;
     display: flex;
     gap: 20px;
 }
@@ -266,7 +240,7 @@ iframe {
 .form__title {
     font-size: 4em;
     margin-bottom: 30px;
-    color: #bdbdbd;
+    color: black;
 }
 .form__field {
     display: flex;
@@ -288,7 +262,7 @@ iframe {
     width: 390px;
     height: 45px;
     border: unset;
-    background-color: #f3f3f3;
+    background-color: var(--white-pure);
 }
 .input__field:last-child {
     height: 145px;
@@ -300,5 +274,5 @@ iframe {
     margin-top: 30px;
     height: 70px;
     background-color: #333333;
-    color: white;
+    color: black;
 }

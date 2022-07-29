@@ -7,7 +7,7 @@ $amount_of_product = DB::select("select count(*) from carts where orderer = '{$u
         <x-application-logo style="width: 80px; height: fit-content;"></x-application-logo>
     </div>
     <div class="wrap__elements">
-        <a href="/" class="link__element--wrap {{ request()->is('/') ? 'link__active' : '' }}">
+        <a href="/home" class="link__element--wrap {{ request()->is('/home') ? 'link__active' : '' }}">
             <div class="navbar__element--redirect">
                 <ion-icon name="home-outline"></ion-icon><span>Home</span>
             </div>
